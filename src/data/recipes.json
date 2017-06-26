@@ -1,0 +1,23 @@
+[
+    {
+        "cake": [
+            "eggs",
+            "flour",
+            "butter",
+            "sugar",
+            "salt"
+        ]
+    },
+    {
+        "jam": [
+            "strawberries",
+            "sugar"
+        ]
+    },
+    {
+        "cornflakes": [
+            "milk",
+            "cornflakes"
+        ]
+    }
+]
