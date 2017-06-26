@@ -1,13 +1,18 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField';
+
+const style = {
+  marginLeft: 20,
+};
 
 const Recipe = (props) => {
   let myIngredients = props.ingredientsArr.map((ingredient) => {
     return (
-      <li>
-        {ingredient}
-      </li>
+      <TextField value={ingredient} style={style} underlineShow={false} />
     )
   })
   return (
@@ -18,9 +23,9 @@ const Recipe = (props) => {
       showExpandableButton={true}
     />
     <CardText expandable={true}>
-      <ul>
+      <Paper zDepth={2}>
         {myIngredients}
-      </ul>
+      </Paper>
       <CardActions>
       <FlatButton label="Delete" />
       <FlatButton label="Edit" />
