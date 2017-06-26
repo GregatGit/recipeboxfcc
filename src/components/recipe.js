@@ -2,25 +2,31 @@ import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
-const Recipe = (props) => (
+const Recipe = (props) => {
+  let myIngredients = props.ingredientsArr.map((ingredient) => {
+    return (
+      <li>
+        {ingredient}
+      </li>
+    )
+  })
+  return (
   <Card>
     <CardHeader
       title={props.details}
-      subtitle="Subtitle"
       actAsExpander={true}
       showExpandableButton={true}
     />
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
     <CardText expandable={true}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+      <ul>
+        {myIngredients}
+      </ul>
+      <CardActions>
+      <FlatButton label="Delete" />
+      <FlatButton label="Edit" />
+    </CardActions>
     </CardText>
   </Card>
-);
+)};
 
 export default Recipe;

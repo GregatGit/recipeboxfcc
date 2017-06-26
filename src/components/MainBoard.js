@@ -20,7 +20,10 @@ class MainBoard extends React.Component {
     const recipeCards = titles.map((name) => {
       return (
         <MuiThemeProvider>
-          <Recipe details={name.toUpperCase()}/>          
+          <Recipe 
+            details={name.toUpperCase()}
+            ingredientsArr={this.state[name]}  
+          />          
         </MuiThemeProvider>
       )
     })
