@@ -6,12 +6,21 @@ import Recipe from './recipe'
 class MainBoard extends React.Component {
   constructor (props) {
     super(props)
+
+    if (localStorage['myRecipes']){
+      console.log('recipes in local')
+    }else{
+      console.log('loading local storage')
+      localStorage.setItem('myRecipes', JSON.stringify(data))
+    }
     this.state = {
     }
   }
   componentDidMount () {
     console.log(data)
-    data.forEach((recipe) => {
+    let myData = JSON.parse(localStorage.myRecipes)
+    console.log('my Data ', myData)
+    myData.forEach((recipe) => {
       this.setState(recipe)
     })
   }
