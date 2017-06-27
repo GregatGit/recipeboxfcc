@@ -12,7 +12,10 @@ const style = {
 const Recipe = (props) => {
   let myIngredients = props.ingredientsArr.map((ingredient) => {
     return (
-      <TextField value={ingredient} style={style} underlineShow={false} />
+      <div>
+        <TextField value={ingredient} style={style} underlineShow={false} />
+        <Divider />
+      </div>
     )
   })
   return (
