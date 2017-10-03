@@ -21,6 +21,7 @@ class MainBoard extends React.Component {
     const updatedRecipes = this.state.recipes
     updatedRecipes.splice(recipeIndex, 1)
     this.setState({recipes: updatedRecipes})
+    localStorage.setItem('myRecipes', JSON.stringify(updatedRecipes))
   }
 
   addRecipeToState = (newRecipe) => {
