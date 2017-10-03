@@ -19,7 +19,7 @@ const Recipe = (props) => {
     )
   })
   return (
-  <Card>
+  <Card key={props.id}>
     <CardHeader
       title={props.details}
       actAsExpander={true}
@@ -30,7 +30,7 @@ const Recipe = (props) => {
         {myIngredients}
       </Paper>
       <CardActions>
-      <FlatButton label="Delete" />
+      <FlatButton label="Delete" onClick={props.deleteRecipe} />
       <FlatButton label="Edit" />
     </CardActions>
     </CardText>

@@ -17,6 +17,12 @@ class MainBoard extends React.Component {
     }
   }
 
+  deleteRecipe = (recipeIndex) => {
+    const updatedRecipes = this.state.recipes
+    updatedRecipes.splice(recipeIndex, 1)
+    this.setState({recipes: updatedRecipes})
+  }
+
   addRecipeToState = (newRecipe) => {
     
   }
@@ -28,13 +34,15 @@ class MainBoard extends React.Component {
   }
   render () {
     const titles1 = Object.keys(this.state.recipes)
-    const recipeCards = this.state.recipes.map((recipe) => {
+    const recipeCards = this.state.recipes.map((recipe, index) => {
       let name = Object.keys(recipe)
       return (
         <div>
-          <Recipe 
+          <Recipe            
+            id={index.toString()}
             details={name[0].toUpperCase()}
             ingredientsArr={recipe[name]}
+            deleteRecipe={() => this.deleteRecipe(index)}
           />          
         </div>
       )
