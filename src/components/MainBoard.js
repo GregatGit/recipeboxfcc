@@ -1,5 +1,4 @@
 import React from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import data from '../data/recipes.json'
 import Recipe from './recipe'
 
@@ -28,12 +27,12 @@ class MainBoard extends React.Component {
     const titles = Object.keys(this.state)
     const recipeCards = titles.map((name) => {
       return (
-        <MuiThemeProvider>
+        <div>
           <Recipe 
             details={name.toUpperCase()}
             ingredientsArr={this.state[name]}  
           />          
-        </MuiThemeProvider>
+        </div>
       )
     })
     console.log('rec',recipeCards)
