@@ -10,7 +10,7 @@ const style = {
 };
 
 const Recipe = (props) => {
-  let myIngredients = props.ingredientsArr.map((ingredient) => {
+  const myIngredients = props.ingredientsArr.map((ingredient) => {
     return (
       <div>
         <TextField value={ingredient} style={style} underlineShow={false} />

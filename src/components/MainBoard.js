@@ -13,24 +13,28 @@ class MainBoard extends React.Component {
       localStorage.setItem('myRecipes', JSON.stringify(data))
     }
     this.state = {
+      recipes: []
     }
   }
+
+  addRecipeToState = (newRecipe) => {
+    
+  }
+
   componentDidMount () {
-    console.log(data)
-    let myData = JSON.parse(localStorage.myRecipes)
+    const myData = JSON.parse(localStorage.myRecipes)
     console.log('my Data ', myData)
-    myData.forEach((recipe) => {
-      this.setState(recipe)
-    })
+    this.setState({recipes: myData})
   }
   render () {
-    const titles = Object.keys(this.state)
-    const recipeCards = titles.map((name) => {
+    const titles1 = Object.keys(this.state.recipes)
+    const recipeCards = this.state.recipes.map((recipe) => {
+      let name = Object.keys(recipe)
       return (
         <div>
           <Recipe 
-            details={name.toUpperCase()}
-            ingredientsArr={this.state[name]}  
+            details={name[0].toUpperCase()}
+            ingredientsArr={recipe[name]}
           />          
         </div>
       )
