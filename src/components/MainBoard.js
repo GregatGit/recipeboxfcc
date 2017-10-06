@@ -1,6 +1,8 @@
 import React from 'react'
 import data from '../data/recipes.json'
 import Recipe from './recipe'
+import MyModal from './MyModal'
+// import Modal from './Modal'
 
 class MainBoard extends React.Component {
   constructor (props) {
@@ -34,7 +36,6 @@ class MainBoard extends React.Component {
     this.setState({recipes: myData})
   }
   render () {
-    const titles1 = Object.keys(this.state.recipes)
     const recipeCards = this.state.recipes.map((recipe, index) => {
       let name = Object.keys(recipe)
       return (
@@ -44,7 +45,7 @@ class MainBoard extends React.Component {
             details={name[0].toUpperCase()}
             ingredientsArr={recipe[name]}
             deleteRecipe={() => this.deleteRecipe(index)}
-          />          
+          />      
         </div>
       )
     })
@@ -53,6 +54,9 @@ class MainBoard extends React.Component {
       <div>
         <h1>Recipes</h1>
         {recipeCards}
+        <div>
+          <MyModal buttonOpen='Add Recipe'/>
+        </div>
       </div>
     )
   }
