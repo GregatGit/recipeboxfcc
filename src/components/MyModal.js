@@ -5,7 +5,9 @@ class MyModal extends Component {
   constructor () {
     super()
     this.state = {
-      showModal: false
+      showModal: false,
+      ingredients: [],
+      value: ''
     }
    
   }
@@ -17,6 +19,15 @@ class MyModal extends Component {
   handleCloseModal = () => {
     this.setState({ showModal: false })
   }
+
+  handleChange = (event) => {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit = (event) => {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
   
   render () {
     return (
@@ -26,6 +37,14 @@ class MyModal extends Component {
            isOpen={this.state.showModal}
            contentLabel="Minimal Modal Example"
         >
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+          
           <button onClick={this.handleCloseModal}>X</button>
         </ReactModal>
       </div>
