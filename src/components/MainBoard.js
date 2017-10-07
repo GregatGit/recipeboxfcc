@@ -27,7 +27,7 @@ class MainBoard extends React.Component {
   }
 
   addRecipeToState = (newRecipe) => {
-    
+    console.log(newRecipe)
   }
 
   componentDidMount () {
@@ -55,7 +55,10 @@ class MainBoard extends React.Component {
         <h1>Recipes</h1>
         {recipeCards}
         <div>
-          <MyModal buttonOpen='Add Recipe'/>
+          <MyModal 
+            buttonOpen='Add Recipe'
+            addRecipe={this.addRecipeToState}
+          />
         </div>
       </div>
     )
@@ -63,3 +66,18 @@ class MainBoard extends React.Component {
 }
 
 export default MainBoard
+
+deleteRecipeFactory = (index) => {
+  return function () {
+    //delete recipe with in dex
+    index
+  }
+}
+
+const deleteRecipe = deleteRecipeFactory(index);
+<Recipe            
+  id={index.toString()}
+  details={name[0].toUpperCase()}
+  ingredientsArr={recipe[name]}
+  deleteRecipe={deleteRecipe}
+/>   

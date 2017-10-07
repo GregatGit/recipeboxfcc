@@ -28,6 +28,10 @@ class MyModal extends Component {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
+
+  handleClick = () => {
+    this.props.addRecipe(this.state.value)
+  }
   
   render () {
     return (
@@ -44,7 +48,7 @@ class MyModal extends Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-          
+          <button onClick={this.handleClick} >Test</button>
           <button onClick={this.handleCloseModal}>X</button>
         </ReactModal>
       </div>
